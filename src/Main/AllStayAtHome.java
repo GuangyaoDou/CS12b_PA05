@@ -1,5 +1,6 @@
 package Main;
 
+// Gordon Dou
 public class AllStayAtHome extends Population{
 
   public AllStayAtHome(int n){
