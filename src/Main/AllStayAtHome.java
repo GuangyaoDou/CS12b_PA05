@@ -1,3 +1,4 @@
+// ljy
 package Main;
 
 public class AllStayAtHome extends Population{
