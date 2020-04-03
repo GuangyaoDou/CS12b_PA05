@@ -1,3 +1,4 @@
+//Michael LI
 package Main;
 
 public class MixedPopulation extends Population{
