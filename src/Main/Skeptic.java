@@ -12,7 +12,6 @@ public class Skeptic extends Person {
 	
 	@Override
 	void tryToMove() {
-		// TODO Auto-generated method stub
 		tryToMoveRandomly();
 	}
 	
