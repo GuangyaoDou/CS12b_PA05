@@ -4,14 +4,15 @@ package Main;
 public class MixedPopulation extends Population{
   int numShelterInPlace;
   int numEssential;
-  int numOthers;
+  int numSkeptic;
+  int numFrequentFlier;
 
-  public MixedPopulation(int numShelterInPlace, int numEssential, int numOthers){
-    super(numShelterInPlace + numEssential + numOthers);
+  public MixedPopulation(int numShelterInPlace, int numEssential, int numSkeptic, int numFrequentFlier){
+    super(numShelterInPlace + numEssential + numSkeptic + numFrequentFlier);
     this.numShelterInPlace = numShelterInPlace;
     this.numEssential = numEssential;
-    this.numOthers = numOthers;
-
+    this.numSkeptic = numSkeptic;
+    this.numFrequentFlier = numFrequentFlier;
   }
 
   public void createPeople(){
@@ -21,7 +22,7 @@ public class MixedPopulation extends Population{
     for(int i=0; i<this.numEssential; i++){
       this.addPerson(new StayAtHomeIfSick());
     }
-    for(int i=0; i<this.numOthers; i++){
+    for(int i=0; i<this.numSkeptic; i++){
       this.addPerson(new Skeptic()); // Changed Person to Skeptic since the default person is Skeptic
     }
   }
