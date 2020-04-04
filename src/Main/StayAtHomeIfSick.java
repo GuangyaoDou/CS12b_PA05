@@ -1,6 +1,6 @@
 package Main;
 
-public class StayAtHomeIfSick extends Person{
+public class StayAtHomeIfSick extends Skeptic{
 
 
 	public StayAtHomeIfSick() {
@@ -12,6 +12,7 @@ public class StayAtHomeIfSick extends Person{
     if (!this.infected){
       super.tryToMove();
     }
+    
 	}
 
 }

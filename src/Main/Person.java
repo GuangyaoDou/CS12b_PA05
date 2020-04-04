@@ -15,13 +15,13 @@ import java.util.Random;
 
 */
 
-public class Person {
+public abstract class Person {
   // the persons fate depends on some random variables...
   private Random random = new Random();
 
   // we use the counter to give each Person a unique id
 	private static int counter=1;
-  int id = 0;
+    int id = 0;
 
   // Next we need the location of the Person
   // the Country variable allows the user to "look around"
@@ -91,9 +91,9 @@ public class Person {
 
 	}
 
-  void tryToMove(){
-		tryToMoveRandomly();
-	}
+  abstract void tryToMove();
+//		tryToMoveRandomly();
+	
   /**
 	   try to move one step in a random direction.
 		 if they way is blocked then don't move.
