@@ -31,7 +31,7 @@ public class Population{
   public void addPerson(Person p){
     people[numPeople++] = p;
   }
-
+ 
   public int getSize(){
     return numPeople;
   }

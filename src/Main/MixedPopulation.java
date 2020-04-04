@@ -12,7 +12,7 @@ public class MixedPopulation extends Population{
     super(numShelterInPlace + numEssential + numSkeptic + numFrequentFlier + numRecoverSlow);
     this.numShelterInPlace = numShelterInPlace;
     this.numEssential = numEssential;
-    this.numSkeptic = numSkeptic;
+    this.numSkeptic = numSkeptic; 
     this.numFrequentFlier = numFrequentFlier;
     this.numRecoverSlow = numRecoverSlow;
   }

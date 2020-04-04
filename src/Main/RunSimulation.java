@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RunSimulation {
 	// the maximum number of days the simulation will run
-	private static int MAX_TICKS=1000;
+	private static int MAX_TICKS=1000; 
 
 	private Random random = new Random();
 
