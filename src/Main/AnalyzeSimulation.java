@@ -19,6 +19,11 @@ public class AnalyzeSimulation {
 		int numFrequentFlier = Integer.parseInt(args[5]);
 		int numRecoverSlow = Integer.parseInt(args[6]);
 
+		//Entire simulation
+		double average_affected = 0;
+		double average_days = 0;
+		int maximum_people = 0;
+		
 		for(int i = 0; i<NUM_SIMULATION; i++) {
 			
 			Population population;
@@ -29,6 +34,7 @@ public class AnalyzeSimulation {
 			country.population = population;
 			population.placePeople(country);
 			
+			// Each simulation
 			int total_infected = 0;
 			int peak_infected = 0;
 			int num_of_days = 0;
@@ -46,11 +52,21 @@ public class AnalyzeSimulation {
 					break;
 				}
 			}
-			System.out.printf("%-11s%-4d%-15s%-2d%-24s%-2d%-19s%-2d%n","Simulation",(i+1), ": number of days:",num_of_days,
+			System.out.printf("%-11s%-4d%-15s%-2d%-24s%-3d%-19s%-2d%n","Simulation",(i+1), ": number of days:",num_of_days,
 					 " total number of infected ", total_infected,
 					" peak infected level ", peak_infected);
 			
+			average_affected += total_infected;
+			average_days += num_of_days;
+			if(peak_infected > maximum_people) {
+				maximum_people = peak_infected;
+			}
 		}
+		average_affected = average_affected/NUM_SIMULATION;
+		average_days = average_days/NUM_SIMULATION;
+		System.out.println("The avergae number of days until there are no infections is: "+average_days);
+		System.out.println("The average number of people infected is: " + average_affected);
+		System.out.println("the maximum number of people infected at any one time in the simulation is: " + maximum_people);
 	}
 
 }
