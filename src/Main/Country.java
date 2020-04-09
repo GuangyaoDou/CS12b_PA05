@@ -1,5 +1,3 @@
-// Jiaying Li
-// Jiaying Li2
 package Main;
 
 public class Country {
