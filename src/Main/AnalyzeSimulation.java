@@ -42,6 +42,7 @@ public class AnalyzeSimulation {
 			int infected_yesterday = 0;
 			int recovered_yesterday = 0;
 			int infected_level = 0;
+			int infected_level_yesterday = 0;
 			
 			
 			for(int k=0;k<MAX_TICKS; k++) {
@@ -49,7 +50,7 @@ public class AnalyzeSimulation {
 				infected_level = country.numInfected + country.numRecovered - infected_yesterday - recovered_yesterday;
 				total_infected += infected_level;
 				
-				if((country.numInfected + country.numRecovered)>(infected_yesterday + recovered_yesterday)) {
+				if(infected_level > infected_level_yesterday) {
 					peak_infected = infected_level;
 				}
 
@@ -59,6 +60,7 @@ public class AnalyzeSimulation {
 				}
 				infected_yesterday = country.numInfected;
 				recovered_yesterday = country.numRecovered;
+				infected_level_yesterday = infected_level;
 			}
 			System.out.printf("%-11s%-4d%-15s%-2d%-24s%-3d%-19s%-2d%n","Simulation",(i+1), ": number of days:",num_of_days,
 					 " total number of infected ", total_infected,
