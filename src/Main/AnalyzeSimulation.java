@@ -39,19 +39,26 @@ public class AnalyzeSimulation {
 			int total_infected = 0;
 			int peak_infected = 0;
 			int num_of_days = 0;
+			int infected_yesterday = 0;
+			int recovered_yesterday = 0;
+			int infected_level = 0;
+			
 			
 			for(int k=0;k<MAX_TICKS; k++) {
 				country.simulateOneStep();
-				total_infected += country.numInfected;
+				infected_level = country.numInfected + country.numRecovered - infected_yesterday - recovered_yesterday;
+				total_infected += infected_level;
 				
-				if(country.numInfected>peak_infected) {
-					peak_infected = country.numInfected;
+				if((country.numInfected + country.numRecovered)>(infected_yesterday + recovered_yesterday)) {
+					peak_infected = infected_level;
 				}
 
 				if (country.numInfected==0) {
 					num_of_days = k;
 					break;
 				}
+				infected_yesterday = country.numInfected;
+				recovered_yesterday = country.numRecovered;
 			}
 			System.out.printf("%-11s%-4d%-15s%-2d%-24s%-3d%-19s%-2d%n","Simulation",(i+1), ": number of days:",num_of_days,
 					 " total number of infected ", total_infected,
@@ -62,6 +69,7 @@ public class AnalyzeSimulation {
 			if(peak_infected > maximum_people) {
 				maximum_people = peak_infected;
 			}
+			
 		}
 		average_affected = average_affected/NUM_SIMULATION;
 		average_days = average_days/NUM_SIMULATION;
