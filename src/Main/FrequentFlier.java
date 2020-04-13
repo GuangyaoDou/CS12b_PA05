@@ -19,11 +19,12 @@ public class FrequentFlier extends Person{
 		 int i = random.nextInt(country.places.length);
 	     int j = random.nextInt(country.places[i].length);
 	     while (country.places[i][j] != null) {
-	         // loop to make sure it is an open space ...
 	         i = random.nextInt(country.places.length);
 	         j = random.nextInt(country.places[i].length);
 	       }
-	     this.moveTo(i, j);     
+	     if(isOK(i,j,this.country)) {
+		     this.moveTo(i, j);  
+	     }
 	}
 
 }

@@ -18,6 +18,7 @@ public class AnalyzeSimulation {
 		int numSkeptic = Integer.parseInt(args[4]);
 		int numFrequentFlier = Integer.parseInt(args[5]);
 		int numRecoverSlow = Integer.parseInt(args[6]);
+		NUM_SIMULATION = Integer.parseInt(args[7]);
 
 		//Entire simulation
 		double average_affected = 0;
