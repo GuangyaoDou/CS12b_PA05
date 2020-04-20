@@ -17,6 +17,7 @@ public class RecoverSlow extends Person{
 	public RecoverSlow(int x,int y,Country country) {
 		super(x, y,country);
 	}
+	
 	@Override
 	void tryToMove() {
 		tryToMoveRandomly();
